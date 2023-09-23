@@ -284,9 +284,7 @@ export const HomePage = () => {
         {globalError && Object.keys(globalError).length >= 1 && (
           <div className="error-wrapper">{`One or more vehciles selected doesn't meet maximum distance travelled by corresponding planets selected !`}</div>
         )}
-        {proceedDisable && (
-          <div className="totalTime">{`Tota time taken: ${totalTime}`}</div>
-        )}
+        <div className="totalTime">{`Tota time taken: ${totalTime}`}</div>
         <div className="proceed-button">
           <Button
             label={loading ? "...Please wait" : "Proceed"}
