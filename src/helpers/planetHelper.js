@@ -20,7 +20,6 @@ export const getTotalTime = (vehicleTime) => {
   if (vehicleTime && typeof vehicleTime === "object") {
     let timeArray = Object.values(vehicleTime);
     let index = timeArray.filter((vehicleTime) => vehicleTime).length;
-    console.log(index);
     for (let i = 0; i < index; i++) {
       time = time + timeArray[i];
     }
