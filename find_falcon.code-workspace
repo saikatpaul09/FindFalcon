@@ -1,0 +1,13 @@
+{
+	"folders": [
+		{
+			"name": "find_falcon",
+			"path": "."
+		},
+		{
+			"name": "find_falcone",
+			"path": "../find_falcone"
+		}
+	],
+	"settings": {}
+}

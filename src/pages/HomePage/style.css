@@ -1,0 +1,39 @@
+.homePage {
+  height: calc(100vh - 60px - 80px);
+  overflow-y: auto;
+  & .destination-container {
+    margin: 10px 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: end;
+    flex-wrap: wrap;
+    gap: 10px;
+  }
+  & .vehicle-container {
+    margin-top: 30px;
+    padding: 10px 15px;
+    display: flex;
+    gap: 100px;
+    row-gap: 20px;
+    flex-wrap: wrap;
+  }
+  & .proceed-button {
+    margin-top: 60px;
+    text-align: center;
+    z-index: 90;
+    margin-bottom: 60px;
+  }
+  & .error-wrapper {
+    border-radius: 8px;
+    margin-bottom: 5px;
+    background-color: #ff7f50;
+    color: white;
+    height: 60px;
+    width: 320px;
+    padding: 5px 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 0 auto;
+  }
+}

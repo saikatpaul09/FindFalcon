@@ -1,0 +1,56 @@
+.select-dropdown {
+    position: relative;
+  & .label {
+    color: white;
+    font-weight: 700;
+  }
+  & .distance {
+    color: white;
+    font-size: 20px;
+    font-weight: 700;
+    text-align: center;
+  }
+  & .select {
+    min-width: 120px;
+    height: 20px;
+    margin-top: 5px;
+    background-color: white;
+    border-radius: 5px;
+    border: 1px solid black;
+    padding: 5px 10px;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    & .value {
+        text-overflow: ellipsis;
+    }
+  }
+  & .arrow {
+    margin-left: 8px;
+    cursor: pointer;
+  }
+  & .options {
+    position: absolute;
+    margin-top: 10px;
+    z-index: 100;
+    & .value {
+      cursor: pointer;
+      border-bottom: 0.5px solid gainsboro;
+      padding: 5px;
+      &:hover {
+        background-color: beige;
+      }
+    }
+  }
+  & .showDrop {
+    width: 120px;
+    padding: 5px 10px;
+    border-radius: 5px;
+    background-color: white;
+    transition: width 0.2s, height 0.2s;
+  }
+  & .hideDrop {
+    height: 0px;
+    width: 0px;
+  }
+}

@@ -1,0 +1,19 @@
+.vehicle-list {
+  color: white;
+  & .id {
+    font-size: 20px;
+    text-decoration: underline;
+    margin-bottom: 10px;
+  }
+  & .vehicle-name {
+    font-weight: 700;
+    font-size: 20px;
+  }
+  & .vehicle-details {
+    margin-top: 10px;
+    margin-bottom: 10px;
+    & .vehicle-desc {
+      color: white;
+    }
+  }
+}

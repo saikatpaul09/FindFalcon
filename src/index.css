@@ -1,0 +1,60 @@
+body {
+  margin: 0;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen",
+    "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue",
+    sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+code {
+  font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
+    monospace;
+}
+
+.custom-button {
+  min-width: 90px;
+  min-height: 32px;
+  border: 1px solid black;
+  font-weight: 600;
+  border-radius: 5px;
+  background-color: whitesmoke;
+  box-shadow: rgba(0, 0, 0, 0.15) 1.95px 1.95px 2.6px;
+  cursor: pointer;
+  font-weight: 700;
+  &:hover {
+    background-color: #493a95;
+    color: white;
+    border: 1px solid white;
+  }
+}
+.disabled {
+  font-weight: 600;
+  min-width: 90px;
+  min-height: 32px;
+  border: 1px solid black;
+  border-radius: 5px;
+  cursor: not-allowed;
+  background-color: #cccccc;
+  color: #666666;
+}
+.footer {
+  width: 100%;
+  position: absolute;
+  text-align: center;
+  height: 80px;
+  box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+  background-color: white;
+}
+
+.themeImg-container {
+  min-height: calc(100% - 120px);
+  width: 100%;
+  background-image: url("./assets/images/spaceCraft.jpg");
+  background-repeat: space;
+  background-size: 100% 100%;
+  z-index: -1;
+  position: absolute;
+  left: 0;
+  right: 0;
+}
