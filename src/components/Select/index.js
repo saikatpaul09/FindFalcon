@@ -9,18 +9,22 @@ export const Select = (props) => {
     options,
     onSelect,
     selectedPlanets,
+    vehicleTime,
   } = props;
   return (
     <div className="select-dropdown">
-      {value && (
-        <div className="distance">{`Distance :- ${value?.distance}`}</div>
-      )}
       <div className="select">
         <div className="value">{value?.name || placeHolder}</div>{" "}
         <div onClick={() => setIsDrop(!drop)} className="arrow">
           {!drop ? "˅" : "˄"}
         </div>
       </div>
+      {value && (
+        <div className="distance">{`Distance :- ${value?.distance}`}</div>
+      )}
+      {vehicleTime && (
+        <div className="time_taken">{`Time taken ${vehicleTime}`}</div>
+      )}
       {options && (
         <div className={`options ${drop ? "showDrop" : "hideDrop"}`}>
           {drop &&

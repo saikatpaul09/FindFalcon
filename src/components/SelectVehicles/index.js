@@ -31,6 +31,7 @@ export const SelectVehicles = (props) => {
               />
               {vehicle?.name}
             </div>
+
             <div className="vehicle-details">
               <div className="vehicle-desc">
                 {`Total vehicles available: ${vehicle.total_no - vehicleCount}`}

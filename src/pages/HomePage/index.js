@@ -11,6 +11,7 @@ import {
   filteredPlanets,
   getPlanetHelper,
   getVehicleHelper,
+  getTotalTime,
 } from "../../helpers";
 import "./style.css";
 
@@ -28,6 +29,12 @@ export const HomePage = () => {
   const [globalError, setGlobalError] = useState({});
   const [loading, setLoader] = useState(false);
   const [selectedPlanets, setSelectedPlanets] = useState({
+    destination1: null,
+    destination2: null,
+    destination3: null,
+    destination4: null,
+  });
+  const [vehicleTime, setVehicleTime] = useState({
     destination1: null,
     destination2: null,
     destination3: null,
@@ -85,7 +92,15 @@ export const HomePage = () => {
             ...globalError,
             [id]: true,
           });
+          setVehicleTime({
+            ...vehicleTime,
+            [id]: null,
+          });
         } else {
+          setVehicleTime({
+            ...vehicleTime,
+            [id]: Number(planet?.distance / vehicle?.speed),
+          });
           if (globalError.hasOwnProperty(id)) {
             let tempObj = { ...globalError };
             delete tempObj[id];
@@ -93,12 +108,19 @@ export const HomePage = () => {
           }
         }
       }
-    } else if (selectedPlanets[id] === planet)
+    } else if (selectedPlanets[id] === planet) {
+      setVehicleTime({
+        ...vehicleTime,
+        [id]: null,
+      });
       setSelectedPlanets({
         ...selectedPlanets,
         [id]: null,
       });
+    }
   };
+  const totalTime = getTotalTime(vehicleTime);
+
   const onSelectVehicle = (id, vehicle, isChecked) => {
     if (!isChecked) {
       setSelectedVehicles([...selectedVehicles, { id, ...vehicle }]);
@@ -107,7 +129,15 @@ export const HomePage = () => {
           ...globalError,
           [id]: true,
         });
+        setVehicleTime({
+          ...vehicleTime,
+          [id]: null,
+        });
       } else {
+        setVehicleTime({
+          ...vehicleTime,
+          [id]: Number(selectedPlanets[id]?.distance / vehicle?.speed),
+        });
         if (globalError.hasOwnProperty(id)) {
           let tempObj = { ...globalError };
           delete tempObj[id];
@@ -121,6 +151,10 @@ export const HomePage = () => {
         tempArray.splice(index, 1);
         setSelectedVehicles([...tempArray]);
       }
+      setVehicleTime({
+        ...vehicleTime,
+        [id]: null,
+      });
     }
   };
 
@@ -165,7 +199,8 @@ export const HomePage = () => {
       }
     }
   };
-
+  const proceedDisable =
+    buttonDisabled || (globalError && Object.keys(globalError).length >= 1);
   return (
     <>
       <Header onReset={onReset} />
@@ -183,6 +218,7 @@ export const HomePage = () => {
             selectedPlanets={selectedPlanets}
             onSelect={(planet) => onSelect("destination1", planet)}
             value={selectedPlanets.destination1}
+            vehicleTime={vehicleTime["destination1"]}
           />
           <Select
             id="destination2"
@@ -192,6 +228,7 @@ export const HomePage = () => {
               selectedPlanets.destination3?.name,
               selectedPlanets.destination4?.name,
             ])}
+            vehicleTime={vehicleTime["destination2"]}
             selectedPlanets={selectedPlanets}
             onSelect={(planet) => onSelect("destination2", planet)}
             value={selectedPlanets.destination2}
@@ -204,6 +241,7 @@ export const HomePage = () => {
               selectedPlanets.destination2?.name,
               selectedPlanets.destination4?.name,
             ])}
+            vehicleTime={vehicleTime["destination3"]}
             selectedPlanets={selectedPlanets}
             onSelect={(planet) => onSelect("destination3", planet)}
             value={selectedPlanets.destination3}
@@ -211,6 +249,7 @@ export const HomePage = () => {
           <Select
             id="destination4"
             placeHolder="Select Destination 4"
+            vehicleTime={vehicleTime["destination4"]}
             options={filteredPlanets(planets, [
               selectedPlanets.destination1?.name,
               selectedPlanets.destination2?.name,
@@ -245,16 +284,15 @@ export const HomePage = () => {
         {globalError && Object.keys(globalError).length >= 1 && (
           <div className="error-wrapper">{`One or more vehciles selected doesn't meet maximum distance travelled by corresponding planets selected !`}</div>
         )}
-
+        {proceedDisable && (
+          <div className="totalTime">{`Tota time taken: ${totalTime}`}</div>
+        )}
         <div className="proceed-button">
           <Button
             label={loading ? "...Please wait" : "Proceed"}
             onClick={onSearchFalcone}
-            disabled={
-              buttonDisabled ||
-              (globalError && Object.keys(globalError).length >= 1)
-            }
-          ></Button>
+            disabled={proceedDisable}
+          />
         </div>
       </div>
       <Footer />

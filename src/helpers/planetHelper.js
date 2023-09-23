@@ -14,3 +14,16 @@ export const getPlanetHelper = (planets) => {
 export const getVehicleHelper = (vehicles) => {
   return vehicles.map((vehicle) => vehicle.name);
 };
+
+export const getTotalTime = (vehicleTime) => {
+  let time = 0;
+  if (vehicleTime && typeof vehicleTime === "object") {
+    let timeArray = Object.values(vehicleTime);
+    let index = timeArray.filter((vehicleTime) => vehicleTime).length;
+    console.log(index);
+    for (let i = 0; i < index; i++) {
+      time = time + timeArray[i];
+    }
+  }
+  return time;
+};

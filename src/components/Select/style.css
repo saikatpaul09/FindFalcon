@@ -1,5 +1,5 @@
 .select-dropdown {
-    position: relative;
+  position: relative;
   & .label {
     color: white;
     font-weight: 700;
@@ -22,8 +22,13 @@
     justify-content: space-around;
     align-items: center;
     & .value {
-        text-overflow: ellipsis;
+      text-overflow: ellipsis;
     }
+  }
+  & .time_taken {
+    font-weight: 800;
+    font-size: 20px;
+    color: white;
   }
   & .arrow {
     margin-left: 8px;

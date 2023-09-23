@@ -2,12 +2,13 @@
   height: calc(100vh - 60px - 80px);
   overflow-y: auto;
   & .destination-container {
-    margin: 10px 20px;
+    margin: 30px 20px;
     display: flex;
-    justify-content: space-between;
-    align-items: end;
+    gap: 40px;
+    align-items: start;
     flex-wrap: wrap;
-    gap: 10px;
+    row-gap: 10px;
+    justify-content: center;
   }
   & .vehicle-container {
     margin-top: 30px;
@@ -16,12 +17,22 @@
     gap: 100px;
     row-gap: 20px;
     flex-wrap: wrap;
+    justify-content: center;
   }
   & .proceed-button {
     margin-top: 60px;
     text-align: center;
     z-index: 90;
     margin-bottom: 60px;
+  }
+  & .totalTime {
+    text-align: center;
+    margin-top: 20px;
+    text-align: center;
+    margin-bottom: 20px;
+    color: white;
+    font-weight: 800;
+    font-size: 20px;
   }
   & .error-wrapper {
     border-radius: 8px;
