@@ -28,5 +28,5 @@ Your app is ready to be deployed!
 See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
 
 ### `npm i`
-this installs all dependenciesd which you can see in your package.json file
+This installs all dependencies which you can see in your package.json file
 
